@@ -38,15 +38,15 @@ public class World {
         return world;
     }
 
-    public void updateAsynch() {
+    public void updateAsync() {
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
-                updateCellAsynch(row, column);
+                updateCellAsync(row, column);
             }
         }
     }
 
-    public void updateCellAsynch(int row, int column) {
+    public void updateCellAsync(int row, int column) {
         int aliveNeighbors = countAliveNeighbors(row, column);
 
         if (cellMatrix[row][column].isAlive()) {
@@ -66,10 +66,10 @@ public class World {
         }
     }
 
-    public void updateSynch() {
+    public void updateSync() {
         for (int row = 0; row < rows; row++) {
             for (int column = 0; column < columns; column++) {
-                updateCellSynch(row, column);
+                updateCellSync(row, column);
             }
         }
         for (int row = 0; row < rows; row++) {
@@ -81,7 +81,7 @@ public class World {
         }
     }
 
-    public void updateCellSynch(int row, int column) {
+    public void updateCellSync(int row, int column) {
         int aliveNeighbors = countAliveNeighbors(row, column);
 
         if (cellMatrix[row][column].isAlive()) {

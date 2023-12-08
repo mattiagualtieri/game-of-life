@@ -36,6 +36,12 @@ public class Main {
 
         System.out.println("Using " + Config.mode + " mode");
 
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException();
+        }
+
         int generation = 0;
         boolean running = true;
         while (running) {
@@ -48,10 +54,10 @@ public class Main {
             if (generation % Config.logDensityPeriod == 0) {
                 System.out.println("[Generation #" + generation + "]: density = " + String.format("%.4f", world.getDensity()));
             }
-            if (Config.mode == SimulationMode.ASYNCH) {
-                world.updateAsynch();
+            if (Config.mode == SimulationMode.ASYNC) {
+                world.updateAsync();
             } else {
-                world.updateSynch();
+                world.updateSync();
             }
         }
     }
